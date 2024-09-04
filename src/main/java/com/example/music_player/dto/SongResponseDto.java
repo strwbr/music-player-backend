@@ -9,7 +9,7 @@ import java.util.UUID;
  * DTO for {@link com.example.music_player.entities.Song}
  */
 @Value
-public class SongDto {
+public class SongResponseDto {
     UUID id;
     String name;
     int durationMs;
