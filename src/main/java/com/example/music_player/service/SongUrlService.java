@@ -1,11 +1,20 @@
 package com.example.music_player.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SongUrlService {
 
-    public String generateSongUrl(String filename) {
-        return "test_url_to_s3";
+    @Value("${storage.endpoint}")
+    private String storageEndpoint;
+
+    @Value("${storage.bucket-name}")
+    private String bucketName;
+
+    public String generateSongStorageUrl(String filename) {
+        String url = storageEndpoint + "/" + bucketName + "/" + filename;
+        System.out.println("S3 storage URL = " + url);
+        return url;
     }
 }

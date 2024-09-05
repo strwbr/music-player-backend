@@ -27,7 +27,7 @@ public class Song extends NamedEntity {
     private LocalDate releaseDate;
 
     @ManyToMany(mappedBy = "songs")
-    private Set<Artist> artists = new HashSet<>();
+    private Set<Artist> artists;
 
     @OneToMany(mappedBy = "song", orphanRemoval = true)
     private Set<SongFile> songFiles;

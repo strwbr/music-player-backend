@@ -1,8 +1,10 @@
 package com.example.music_player.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Value;
 
 import java.time.LocalDate;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -14,5 +16,6 @@ public class SongResponseDto {
     String name;
     int durationMs;
     LocalDate releaseDate;
-    String urlS3;
+    String storageUrl;
+    Set<ArtistDto> artists;
 }
