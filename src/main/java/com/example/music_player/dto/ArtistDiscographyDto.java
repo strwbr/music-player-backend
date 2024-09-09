@@ -9,5 +9,6 @@ import java.util.Set;
  */
 @Value
 public class ArtistDiscographyDto {
+    String name;
     Set<SongResponseDto> songs;
 }

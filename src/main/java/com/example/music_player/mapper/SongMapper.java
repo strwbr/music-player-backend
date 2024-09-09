@@ -5,29 +5,24 @@ import com.example.music_player.entities.Song;
 import com.example.music_player.entities.SongFile;
 import com.example.music_player.service.SongUrlService;
 import org.mapstruct.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Set;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE,
         componentModel = MappingConstants.ComponentModel.SPRING,
         uses = {ArtistMapper.class})
-public abstract class SongMapper {
+public interface SongMapper {
 
-    @Autowired
-    private SongUrlService songUrlService;
+    Song toSongEntity(SongResponseDto songResponseDto);
 
-    public abstract Song toSongEntity(SongResponseDto songResponseDto);
+    @Mapping(target = "storageUrl",
+            expression = "java(generateSongUrl(song.getSongFile()))")
+    SongResponseDto toSongResponseDto(Song song);
 
-    @Mapping(target = "storageUrl", source = "songFiles", qualifiedByName = "generateSongUrl")
-    public abstract SongResponseDto toSongResponseDto(Song song);
-
-    @Named("generateSongUrl")
-    private String generateSongUrl(Set<SongFile> songFiles) {
-        if (songFiles == null || songFiles.isEmpty()) {
+    default String generateSongUrl(SongFile songFile) {
+        if (songFile == null) {
             return null;
         }
-        String songFilename = songFiles.iterator().next().getFilename(); // если в сете только 1 эл-т
-        return songUrlService.generateSongStorageUrl(songFilename);
+        String songFilename = songFile.getFilename();
+        return SongUrlService.generateSongStorageUrl(songFilename);
     }
 }

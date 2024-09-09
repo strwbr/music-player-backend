@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "song_file")
+@Table(name = "song_files")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,9 +16,7 @@ public class SongFile extends BaseEntity {
 
     private String filename;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "song_id")
     private Song song;
-
-
 }

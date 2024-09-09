@@ -28,6 +28,6 @@ public class Song extends NamedEntity {
     @ManyToMany(mappedBy = "songs")
     private Set<Artist> artists;
 
-    @OneToMany(mappedBy = "song", orphanRemoval = true)
-    private Set<SongFile> songFiles;
+    @OneToOne(mappedBy = "song")
+    private SongFile songFile;
 }

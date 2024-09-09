@@ -7,18 +7,16 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    environment:
-      - POSTGRES_URL=jdbc:postgresql://db:5432/music
+    env_file:
+      - storage.env
 
   db:
     image: postgres
     restart: always
     volumes:
       - db-data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=music
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=jk_16tRs*95bT
+    env_file:
+      - storage.env
     #      expose:
     #        - 5432
     ports:
@@ -31,9 +29,8 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: admin
+    env_file:
+      - storage.env
     ports:
       - "80:80"
     depends_on:
