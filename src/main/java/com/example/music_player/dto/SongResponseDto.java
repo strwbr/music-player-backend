@@ -1,6 +1,5 @@
 package com.example.music_player.dto;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.Value;
 
 import java.time.LocalDate;
