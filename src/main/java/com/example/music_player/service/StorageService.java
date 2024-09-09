@@ -17,6 +17,7 @@ public class StorageService {
 
     private final AmazonS3 storage;
 
+//    TODO через переменные среды сделать!!!
     @Value("${storage.access-key}")
     private String accessKey;
 
