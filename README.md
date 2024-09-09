@@ -16,3 +16,4 @@ REST API музыкального сервиса, позволяющее
 + PostgreSQL
 + AWS SDK
 + Яндекс Object Storage (S3-хранилище)
++ Docker
