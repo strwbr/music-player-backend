@@ -18,6 +18,7 @@ public interface SongMapper {
             expression = "java(generateSongUrl(song.getSongFile()))")
     SongResponseDto toSongResponseDto(Song song);
 
+//    TODO убрать генератор отсюда - принцип единой ответственности!!!
     default String generateSongUrl(SongFile songFile) {
         if (songFile == null) {
             return null;

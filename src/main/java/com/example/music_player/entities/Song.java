@@ -30,4 +30,7 @@ public class Song extends NamedEntity {
 
     @OneToOne(mappedBy = "song")
     private SongFile songFile;
+
+//    @OneToMany(mappedBy = "song")
+//    Set<ArtistDiscography> artists;
 }

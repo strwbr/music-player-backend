@@ -25,4 +25,6 @@ public class Artist extends NamedEntity {
             inverseJoinColumns = @JoinColumn(name = "song_id"))
     private Set<Song> songs;
 
+//    @OneToMany(mappedBy = "artist")
+//    Set<ArtistDiscography> songs;
 }
