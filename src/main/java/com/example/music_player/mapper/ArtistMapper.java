@@ -14,8 +14,8 @@ public interface ArtistMapper {
 
     ArtistDto toArtistDto(Artist artist);
 
-    Artist toArtistEntity(ArtistDiscographyDto artistDiscographyDto);
-
-    ArtistDiscographyDto toArtistDiscographyDto(Artist artist);
+//    Artist toArtistEntity(ArtistDiscographyDto artistDiscographyDto);
+//
+//    ArtistDiscographyDto toArtistDiscographyDto(Artist artist);
 
 }
